@@ -3,6 +3,11 @@ body {
   color: #b9bcb8;
 }
 
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+}
+
 .cajaArtista {
   background-color: rgb(47, 101, 162);
   padding: 20px;
@@ -32,7 +37,7 @@ body {
 
 /* Selector por id que identifica la sección del banner. */
 #banner {
-  background-image: url("../Static/Img/banner.jpg");
+  background-image: url("./Static/Img/banner.jpg");
   background-position: center; 
   height: 100%;
 }
