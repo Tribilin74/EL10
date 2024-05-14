@@ -37,7 +37,7 @@ body {
 
 /* Selector por id que identifica la sección del banner. */
 #banner {
-  background-image: url("./Static/Img/banner.jpg");
+  background-image: url("../Img/banner.jpg");
   background-position: center; 
   height: 100%;
 }
