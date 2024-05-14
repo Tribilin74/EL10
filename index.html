@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" href="./Static/Img/camera_ico.png">
+    <script src="https://kit.fontawesome.com/68d51e1d0f.js" crossorigin="anonymous"></script>
+       <!-- CSS externo -->
+    <link rel="stylesheet" href="/Static/css/estilo.css">
+    <script>
+        function delay (URL) {
+            setTimeout( function() { window.location = URL }, 1500 );
+        }
+        </script>
+    <title>Grupo10</title>
+</head>
+<body>
+            <!-- Banner -->
+            <section id="banner">
+                <div >
+                <h1>Tus mejores recuerdos y mucho mas</h1>
+                </div>
+            </section>
+
+            <nav>
+                <audio id="player" src="./Static/Img/capture.mp3"></audio>
+
+                <!-- hipervinculos del menu -->
+                <ul class="nav-links">
+                    <li><a href="javascript:delay('/templates/planes.html')" onclick="document.getElementById('player').play()" >Planes</a></li>
+                    <li><a href="javascript:delay('/templates/registro.html')" onclick="document.getElementById('player').play()">Registrarse</a></li>
+                    <li><a href="javascript:delay('/templates/contacto.html')" onclick="document.getElementById('player').play()">Contacto</a></li>
+                </ul>
+
+            </nav>
+
+            <section>
+                <div class ="cajaArtista">
+                    <div class="artista"><h2> Carla Romero Fotografia </h2> </div>
+                    
+                    <div class="imageIndex1">
+                        <img src="./Static/Img/XKN_783.jpg"  alt="" width="500" height="600" > 
+                        <br>
+                    </div>
+
+                    <div class="mensajeIndex"><h3>Capturando Momentos, Creando Recuerdos</h3>
+                    <iframe width="320" height="200" src="https://www.youtube.com/embed/f9XAatpg1ps" title="Drone" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>   
+                    </div>
+                    <div class="imagenIndex2">
+                        <img src="./Static/Img/XKN_794.jpg" alt="" width="500" height="400" > 
+                        <br>
+                    </div>
+          
+                    <br>
+                </div>
+            </section>
+
+            <footer>
+                <a href="">Terminos y Condiciones</a>
+                <a href="">Preguntas Frecuentes</a>
+                <a href="">Ayuda</a>
+            </footer>
+</body>
+</html>
