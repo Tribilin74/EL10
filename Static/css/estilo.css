@@ -173,11 +173,46 @@ p {
 
 
 /* ----- -----  Mediaqueries ----- ----- */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
 	.formulario {
 		grid-template-columns: 1fr;
 		font-style:oblique;
 		color: #f0e742;
+	}
+
+	.formulario__grupo-terminos, 
+	.formulario__mensaje,
+	.formulario__grupo-btn-enviar {
+		grid-column: 1;
+	}
+
+	.formulario__btn {
+		width: 30%;
+	}
+}
+
+@media screen and (min-width: 600px) {
+	.formulario {
+		grid-template-columns: 1fr;
+		font-style:italic;
+		color: #f0427c;
+	}
+
+	.formulario__grupo-terminos, 
+	.formulario__mensaje,
+	.formulario__grupo-btn-enviar {
+		grid-column: 1;
+	}
+
+	.formulario__btn {
+		width: 30%;
+	}
+}
+@media screen and (min-width: 768px) {
+	.formulario {
+		grid-template-columns: 1fr;
+		font-style: normal;
+		color: #0cece8;
 	}
 
 	.formulario__grupo-terminos, 
