@@ -176,6 +176,8 @@ p {
 @media screen and (max-width: 800px) {
 	.formulario {
 		grid-template-columns: 1fr;
+		font-style:oblique;
+		color: #f0e742;
 	}
 
 	.formulario__grupo-terminos, 
