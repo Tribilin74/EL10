@@ -74,7 +74,7 @@ p {
 }
 
 .formulario__input-error {
-	font-size: 12px;
+	font-size: calc(1rem + 1vw);
 	margin-bottom: 0;
 	display: none;
 }
@@ -143,7 +143,7 @@ p {
 }
 
 .formulario__mensaje-exito {
-	font-size: 14px;
+	font-size: calc(1rem + 1vw);
 	color: #119200;
 	display: none;
 }
@@ -173,11 +173,45 @@ p {
 
 
 /* ----- -----  Mediaqueries ----- ----- */
-@media screen and (max-width: 600px) {
+/*Escritorio*/
+@media screen and (min-width: 1199.98px) {
 	.formulario {
 		grid-template-columns: 1fr;
-		font-style:oblique;
-		color: #f0e742;
+		font-size: calc(1rem + 1vw);;
+	}
+
+	.formulario__grupo-terminos, 
+	.formulario__mensaje,
+	.formulario__grupo-btn-enviar {
+		grid-column: 1;
+	}
+
+	.formulario__btn {
+		width: 30%;
+	}
+}
+/*tablet*/
+@media screen and (min-width: 576px) and (max-width: 991.98px) {
+	.formulario {
+		grid-template-columns: 1fr;
+		font-size: calc(1rem + 1vw);;
+	}
+
+	.formulario__grupo-terminos, 
+	.formulario__mensaje,
+	.formulario__grupo-btn-enviar {
+		grid-column: 1;
+	}
+
+	.formulario__btn {
+		width: 30%;
+	}
+}
+/*Celular*/
+@media screen and (max-width: 575.98px) {
+	.formulario {
+		grid-template-columns: 1fr;
+		font-size: calc(1rem + 1vw);;
 	}
 
 	.formulario__grupo-terminos, 
@@ -191,37 +225,49 @@ p {
 	}
 }
 
-@media screen and (min-width: 600px) {
-	.formulario {
-		grid-template-columns: 1fr;
-		font-style:italic;
-		color: #f0427c;
-	}
-
-	.formulario__grupo-terminos, 
-	.formulario__mensaje,
-	.formulario__grupo-btn-enviar {
-		grid-column: 1;
-	}
-
-	.formulario__btn {
-		width: 30%;
-	}
-}
-@media screen and (min-width: 768px) {
-	.formulario {
-		grid-template-columns: 1fr;
-		font-style: normal;
-		color: #0cece8;
-	}
-
-	.formulario__grupo-terminos, 
-	.formulario__mensaje,
-	.formulario__grupo-btn-enviar {
-		grid-column: 1;
-	}
-
-	.formulario__btn {
-		width: 30%;
-	}
-}
+.carrousel .grande {
+	width: 300%;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	align-items: center;
+	transition: all 0.4s ease;
+	border-radius: 1em;
+	background-color: var(rgb(47, 101, 162));
+	box-shadow: 1em 1em 2em var, -1em -1em 2em , inset 0 0 0 transparent, inset 0 0 0 transparent;
+	padding: 2em;
+	transition: all 0.5s ease;
+	transform: translateX(0%);
+   }
+  
+  .carrousel .img {
+	transition: all 0.4s ease;
+	border-radius: 1em;
+	width: calc(rem + 10vw);
+	height: calc(20rem + 20vw);
+  }
+  
+  .carrousel .puntos {
+	margin: 1em 0 0;
+	padding: 0.4em;
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+  }
+  
+  .carrousel .punto {
+	width: 2em;
+	height: 2em;
+	margin: 1em 1em 0;
+	color: var(--negro);
+	transition: all 0.4s ease;
+	border-radius: 1em;
+	background-color: white inset 0 0 0 transparent;
+	box-shadow: 0.6em 0.6em 1.2em , -0.6em -0.6em 1.2em , inset 0 0 0 transparent, inset 0 0 0 transparent;
+   }
+  
+  .carrousel .punto.activo {
+	background-color: rgb(12, 42, 234);
+  }
+  
