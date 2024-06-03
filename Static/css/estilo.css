@@ -186,10 +186,10 @@ h3 {
 
 /* ----- -----  Mediaqueries ----- ----- */
 /*Escritorio*/
-@media screen and (min-width: 1199.98px) {
+@media screen and (min-width: 1200px) {
 	.formulario {
 		grid-template-columns: 1fr;
-		font-size: calc(1rem + 1vw);;
+		font-size: calc(.5rem + .5vw);;
 	}
 
 	.formulario__grupo-terminos, 
@@ -203,10 +203,10 @@ h3 {
 	}
 }
 /*tablet*/
-@media screen and (min-width: 576px) and (max-width: 991.98px) {
+@media screen and (min-width: 576px) and (max-width: 1199.99px) {
 	.formulario {
 		grid-template-columns: 1fr;
-		font-size: calc(1rem + 1vw);;
+		font-size: calc(.5rem + .5vw);;
 	}
 
 	.formulario__grupo-terminos, 
@@ -220,10 +220,10 @@ h3 {
 	}
 }
 /*Celular*/
-@media screen and (max-width: 575.98px) {
+@media screen and (max-width: 575.99px) {
 	.formulario {
 		grid-template-columns: 1fr;
-		font-size: calc(1rem + 1vw);;
+		font-size: calc(.5rem + .5vw);;
 	}
 
 	.formulario__grupo-terminos, 
