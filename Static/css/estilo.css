@@ -247,7 +247,6 @@ h3 {
 	border-radius: 1em;
 	background-color: var(rgb(47, 101, 162));
 	box-shadow: 1em 1em 2em var, -1em -1em 2em , inset 0 0 0 transparent, inset 0 0 0 transparent;
-	padding: 2em;
 	transition: all 0.5s ease;
 	transform: translateX(0%);
    }
@@ -255,13 +254,12 @@ h3 {
   .carrousel .img {
 	transition: all 0.4s ease;
 	border-radius: 1em;
-	width: calc(rem + 10vw);
-	height: calc(20rem + 20vw);
+	width: calc(9rem + 9vw);
+	height: calc(16rem + 16vw);
   }
   
   .carrousel .puntos {
 	margin: 1em 0 0;
-	padding: 0.4em;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
