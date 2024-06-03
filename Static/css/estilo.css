@@ -2,55 +2,96 @@ body {
   background-color: rgb(47, 101, 162);
   color: #b9bcb8;
 }
+#logo{
+	font-family: Arial, sans-serif;
+	text-decoration: none;
+}
+.logo-text {
+	color: #b9bcb8;
+	font-size: calc(.5rem + .5vw);
+}
 
 p {
 	font-family: Arial, sans-serif;
 	font-size: calc(.5rem + .5vw);
+	color: #b9bcb8;
   }
 
 h2{
 	font-family: Arial, sans-serif ;
+	color: #b9bcb8
 }
 
 h1 {
 	font-family: Arial, sans-serif ;
+	color: #b9bcb8
 }
 
 h3 {
 	font-family: Arial, sans-serif ;
+	color: #b9bcb8
+}
+
+.pie {
+	font-family: Arial, sans-serif ;
+	font-size: calc(.5rem + .5vw);
+	color: #b9bcb8;
+    bottom: 0;
+    left: 0;
 }
 
 .nav-links a {
 	font-family: Arial, sans-serif;
     text-decoration: none;
-    color: #fff;
+    color: #b9bcb8;
 }
 
+/*Maquetado del Index*/
 .cajaArtista {
   background-color: rgb(47, 101, 162);
   padding: 20px;
-
+  
   display: grid;
 
+/*dos columnas*/
   grid-template-columns: 40% 45%;
   column-gap: 5px;
   row-gap: 20px;
-  gap: 20px 50px;
 
+  /*dos filas*/
   grid-template-rows: 60% 40%;
   height: 100vh;
   grid-auto-rows: 3fr;
 }
+
   .artista {
     color: #b9bcb8;
-    font-size: 10vb;
+   	text-align: center;
+	justify-content: center;
+	font-size: 4.5vmax;
+	align-content: center;
   }
 
   .mensajeIndex {
     color: #b9bcb8;
     font-size: 3vb;
+	justify-content: center;
   }
 
+  .imageIndex1{
+	color: #b9bcb8;
+	font-size: 3vmax;
+	text-align: justify;
+	align-content: center;
+  }
+
+  .imagenIndex2{
+	color: #b9bcb8;
+	font-size: 3vmax;
+	text-align: justify;
+	align-content: center;
+  }
+  /*Fin Maquetado*/
 
 /* Selector por id que identifica la sección del banner. */
 #banner {
@@ -64,6 +105,7 @@ h3 {
   font-weight: bold;
 }
 
+/*Formulario*/
 .formulario__grupo-input {
 	position: relative;
 }
@@ -237,6 +279,7 @@ h3 {
 	}
 }
 
+/*Estilo Calesita*/
 .carrousel .grande {
 	width: 300%;
 	display: flex;
