@@ -1,50 +1,129 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar producto 🚀</title>
-    <link rel="stylesheet" href="./static/css/estilos.css">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/68d51e1d0f.js" crossorigin="anonymous"></script>
+    
+        <link rel="icon" href="../Static/Img/camera_ico.png">
+    
+           <!-- CSS externo -->
+        <link rel="stylesheet" href="../Static/css/estilo.css">
+    <title>Alta Cliente</title>
+    <link rel="stylesheet" href="./static/css/estilo.css">
 </head>
 
 <body>
     <header>
-        <nav class="navbar-index ">
-            <img class="logo-nav" src="./static/imagenes/logos-nav.webp" alt="logo agencia de aprendizaje">
-        </nav>
+        <nav>
+                <div id="logo">
+                    <a style="color:#b9bcb8;" href="../index.html">
+                        <i class="fa-solid fa-camera-retro"></i>
+                        <span class="logo-text">
+                            C.R.F.
+                        </span></a>
+                </div>
+			<ul class="nav-links">
+                <li><a href="./subindex.html">Menu Interno</a></li>
+            </ul> 
+		</nav>
+        <h1>Agregar Clientes - Uso Interno</h1><br>
     </header>
 
-    <div class="logo-centrado">
-        <img src="./static/imagenes/logo_Codo.jpg" alt="logo">
-    </div>
-    <h1>Agregar Productos al Inventario</h1><br>
 
-    <!--enctype="multipart/form-data" es necesario para enviar archivos al back.-->
-    <form id="formulario" enctype="multipart/form-data">
-        
-        <label for="descripcion">Descripción:</label>
-        <input type="text" id="descripcion" name="descripcion" required><br>
+    <main>
+		<form class="formulario" id="formulario">
+			<!-- Grupo: Usuario -->
+			<div class="formulario__grupo" id="grupo__usuario">
+				<label for="usuario" class="formulario__label">Apellido</label>
+				<div class="formulario__grupo-input">
+					<input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="john123">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+			</div>
 
-        <label for="cantidad">Cantidad:</label>
-        <input type="number" id="cantidad" name="cantidad" required><br>
+			<!-- Grupo: Nombre -->
+			<div class="formulario__grupo" id="grupo__nombre">
+				<label for="nombre" class="formulario__label">Nombre</label>
+				<div class="formulario__grupo-input">
+					<input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="John Doe">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+			</div>
 
-        <label for="precio">Precio:</label>
-        <input type="number" step="0.01" id="precio" name="precio" required><br>
+			<!-- Grupo: Contraseña -->
+			<div class="formulario__grupo" id="grupo__password">
+				<label for="password" class="formulario__label">Contraseña</label>
+				<div class="formulario__grupo-input">
+					<input type="password" class="formulario__input" name="password" id="password">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 dígitos.</p>
+			</div>
 
-        <label for="imagenProducto">Imagen del producto:</label>
-        <input type="file" id="imagenProducto" name="imagen">
+			<!-- Grupo: Contraseña 2 -->
+			<div class="formulario__grupo" id="grupo__password2">
+				<label for="password2" class="formulario__label">Repetir Contraseña</label>
+				<div class="formulario__grupo-input">
+					<input type="password" class="formulario__input" name="password2" id="password2">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
+			</div>
 
-        <br><br>
-        <label for="proveedorProducto">Proveedor:</label>
-        <input type="text" id="proveedorProducto" name="proveedor">
-        
-        <button type="submit">Agregar Producto</button>
-        <a href="index.html">Menu principal</a>
-    </form>
+			<!-- Grupo: Correo Electronico -->
+			<div class="formulario__grupo" id="grupo__correo">
+				<label for="correo" class="formulario__label">Correo Electrónico</label>
+				<div class="formulario__grupo-input">
+					<input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+			</div>
 
-    <script>
+			<!-- Grupo: Teléfono -->
+			<div class="formulario__grupo" id="grupo__telefono">
+				<label for="telefono" class="formulario__label">Teléfono</label>
+				<div class="formulario__grupo-input">
+					<input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="4491234567">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
+			</div>
+
+			<div class="formulario__grupo" id="grupo__foto">
+				<label for="foto" class="formulario__label">Adjuntar Foto</label>
+				<div class="formulario__grupo-input">
+					<input type="file" accept ="image/jpeg" class="formulario__input" name="foto" id="foto" placeholder="">
+					<i class="formulario__validacion-estado fas fa-times-circle"></i>
+				</div>
+				<p class="formulario__input-error">El archivo debe ser en formato jpg.</p>
+			</div>
+
+			<!-- Grupo: Terminos y Condiciones -->
+			<div class="formulario__grupo" id="grupo__terminos">
+				<label class="formulario__label">
+					<input class="formulario__checkbox" type="radio" name="terminos" id="terminos">
+					Acepto los Terminos y Condiciones
+				</label>
+			</div>
+
+			<div class="formulario__mensaje" id="formulario__mensaje">
+				<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
+			</div>
+
+			<div class="formulario__grupo formulario__grupo-btn-enviar">
+				<button type="submit" class="formulario__btn">Enviar</button>
+				<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+			</div>
+		</form>
+	</main>
+
+    <script src="../Static/js/formulario.js"></script>
+
+	<script>
         const URL = "http://127.0.0.1:5000/"
 
         //Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
@@ -87,14 +166,18 @@
 
                 // Limpiar el formulario en ambos casos (éxito o error)
                 .finally(function () {
-                    document.getElementById('descripcion').value = "";
-                    document.getElementById('cantidad').value = "";
-                    document.getElementById('precio').value = "";
-                    document.getElementById('imagenProducto').value = "";
-                    document.getElementById('proveedorProducto').value = "";
+                    document.getElementById('usuario').value = "";
+                    document.getElementById('nombre').value = "";
+                    document.getElementById('password').value = "";
+                    document.getElementById('password2').value = "";
+                    document.getElementById('correo').value = "";
+					document.getElementById('telefono').value = "";
+					document.getElementById('foto').value = "";
+					document.getElementById('terminos').value = "";
                 });
         })
     </script>
+
 </body>
 
 </html>

@@ -50,6 +50,20 @@ h3 {
     display:flex;
     width: 100%;
     justify-content: center;
+	font-family: Arial, sans-serif;
+    text-decoration: none;
+    color: #b9bcb8
+}
+table {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #b9bcb8;
+    border-radius: 5px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+	font-family: Arial, sans-serif;
+    text-decoration: none;
+    color: #b9bcb8
 }
 
 /*Maquetado del Index*/
