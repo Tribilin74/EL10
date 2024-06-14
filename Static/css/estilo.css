@@ -46,6 +46,12 @@ h3 {
     color: #b9bcb8;
 }
 
+.contenedor-centrado {
+    display:flex;
+    width: 100%;
+    justify-content: center;
+}
+
 /*Maquetado del Index*/
 .cajaArtista {
   background-color: rgb(47, 101, 162);
