@@ -47,7 +47,7 @@ class Catalogo:
                 raise err
 
         # Una vez que la base de datos está establecida, creamos la tabla si no existe
-        self.cursor.execute('''CREATE TABLE IF NOT EXISTS productos (
+        self.cursor.execute('''CREATE TABLE IF NOT EXISTS empleados (
             codigo INT AUTO_INCREMENT PRIMARY KEY,
             nombre VARCHAR(255) NOT NULL,
             password VARCHAR(255) NOT NULL,
@@ -63,7 +63,7 @@ class Catalogo:
     #----------------------------------------------------------------
     def agregar_producto(self, nombre, password, correo, imagen_url, telefono,):
                
-        sql = "INSERT INTO productos (nombre, password, correo, imagen_url, telefono) VALUES (%s, %s, %s, %s, %s)"
+        sql = "INSERT INTO empleados (nombre, password, correo, imagen_url, telefono) VALUES (%s, %s, %s, %s, %s)"
         valores = (nombre, password, correo, imagen_url, telefono)
 
         self.cursor.execute(sql, valores)        
