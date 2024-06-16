@@ -77,41 +77,41 @@ class Catalogo:
         return self.cursor.fetchone()
 
     #----------------------------------------------------------------
-    # def modificar_producto(self, codigo, nueva_descripcion, nueva_cantidad, nuevo_precio, nueva_imagen, nuevo_proveedor):
-    #     sql = "UPDATE productos SET descripcion = %s, cantidad = %s, precio = %s, imagen_url = %s, proveedor = %s WHERE codigo = %s"
-    #     valores = (nueva_descripcion, nueva_cantidad, nuevo_precio, nueva_imagen, nuevo_proveedor, codigo)
-    #     self.cursor.execute(sql, valores)
-    #     self.conn.commit()
-    #     return self.cursor.rowcount > 0
+    def modificar_producto(self, codigo, nueva_nombre, nueva_password, nuevo_correo, nueva_imagen, nuevo_telefono):
+        sql = "UPDATE clientes SET nombre = %s, password = %s, correo = %s, imagen_url = %s, telefono = %s WHERE codigo = %s"
+        valores = (nueva_nombre, nueva_password, nuevo_correo, nueva_imagen, nuevo_telefono, codigo)
+        self.cursor.execute(sql, valores)
+        self.conn.commit()
+        return self.cursor.rowcount > 0
 
     #----------------------------------------------------------------
-    # def listar_productos(self):
-    #     self.cursor.execute("SELECT * FROM productos")
-    #     productos = self.cursor.fetchall()
-    #     return productos
+    def listar_productos(self):
+        self.cursor.execute("SELECT * FROM clientes")
+        productos = self.cursor.fetchall()
+        return productos
 
     #----------------------------------------------------------------
-    # def eliminar_producto(self, codigo):
-    #     # Eliminamos un producto de la tabla a partir de su código
-    #     self.cursor.execute(f"DELETE FROM productos WHERE codigo = {codigo}")
-    #     self.conn.commit()
-    #     return self.cursor.rowcount > 0
+    def eliminar_producto(self, codigo):
+        # Eliminamos un producto de la tabla a partir de su código
+        self.cursor.execute(f"DELETE FROM clientes WHERE codigo = {codigo}")
+        self.conn.commit()
+        return self.cursor.rowcount > 0
 
     #----------------------------------------------------------------
-    # def mostrar_producto(self, codigo):
-    #     # Mostramos los datos de un producto a partir de su código
-    #     producto = self.consultar_producto(codigo)
-    #     if producto:
-    #         print("-" * 40)
-    #         print(f"Código.....: {producto['codigo']}")
-    #         print(f"Descripción: {producto['descripcion']}")
-    #         print(f"Cantidad...: {producto['cantidad']}")
-    #         print(f"Precio.....: {producto['precio']}")
-    #         print(f"Imagen.....: {producto['imagen_url']}")
-    #         print(f"Proveedor..: {producto['proveedor']}")
-    #         print("-" * 40)
-    #     else:
-    #         print("Producto no encontrado.")
+    def mostrar_producto(self, codigo):
+        # Mostramos los datos de un producto a partir de su código
+        producto = self.consultar_producto(codigo)
+        if producto:
+            print("-" * 40)
+            print(f"Código.....: {producto['codigo']}")
+            print(f"Nombre.....: {producto['nombre']}")
+            print(f"password...: {producto['password']}")
+            print(f"Correo.....: {producto['correo']}")
+            print(f"Imagen.....: {producto['imagen_url']}")
+            print(f"Telefono...: {producto['telefono']}")
+            print("-" * 40)
+        else:
+            print("Cliente no encontrado.")
 
 
 #--------------------------------------------------------------------
@@ -182,10 +182,10 @@ def agregar_producto():
         imagen.save ( os.path.join(RUTA_DESTINO, nombre_imagen))
 
         #Si el producto se agrega con éxito, se devuelve una respuesta JSON con un mensaje de éxito y un código de estado HTTP 201 (Creado).
-        return jsonify({"mensaje": "Producto agregado correctamente.", "codigo": nuevo_codigo, "imagen": nombre_imagen}), 201
+        return jsonify({"mensaje": "Cliente agregado correctamente.", "codigo": nuevo_codigo, "imagen": nombre_imagen}), 201
     else:
         #Si el producto no se puede agregar, se devuelve una respuesta JSON con un mensaje de error y un código de estado HTTP 500 (Internal Server Error).
-        return jsonify({"mensaje": "Error al agregar el producto."}), 500
+        return jsonify({"mensaje": "Error al agregar el Cliente."}), 500
     
 
 #--------------------------------------------------------------------
@@ -196,10 +196,10 @@ def agregar_producto():
 #La función modificar_producto se asocia con esta URL y es invocada cuando se realiza una solicitud PUT a /productos/ seguido de un número (el código del producto).
 def modificar_producto(codigo):
     #Se recuperan los nuevos datos del formulario
-    nueva_descripcion = request.form.get("descripcion")
-    nueva_cantidad = request.form.get("cantidad")
-    nuevo_precio = request.form.get("precio")
-    nuevo_proveedor = request.form.get("proveedor")
+    nueva_nombre = request.form.get("nombre")
+    nueva_password = request.form.get("password")
+    nuevo_correo = request.form.get("correo")
+    nuevo_telefono = request.form.get("telefono")
     
     
     # Verifica si se proporcionó una nueva imagen
@@ -232,13 +232,13 @@ def modificar_producto(codigo):
 
 
     # Se llama al método modificar_producto pasando el codigo del producto y los nuevos datos.
-    if catalogo.modificar_producto(codigo, nueva_descripcion, nueva_cantidad, nuevo_precio, nombre_imagen, nuevo_proveedor):
+    if catalogo.modificar_producto(codigo, nueva_nombre, nueva_password, nuevo_correo, nombre_imagen, nuevo_telefono):
         
         #Si la actualización es exitosa, se devuelve una respuesta JSON con un mensaje de éxito y un código de estado HTTP 200 (OK).
-        return jsonify({"mensaje": "Producto modificado"}), 200
+        return jsonify({"mensaje": "Cliente modificado"}), 200
     else:
         #Si el producto no se encuentra (por ejemplo, si no hay ningún producto con el código dado), se devuelve un mensaje de error con un código de estado HTTP 404 (No Encontrado).
-        return jsonify({"mensaje": "Producto no encontrado"}), 403
+        return jsonify({"mensaje": "Cliente no encontrado"}), 403
 
 
 
@@ -263,13 +263,13 @@ def eliminar_producto(codigo):
         # Luego, elimina el producto del catálogo
         if catalogo.eliminar_producto(codigo):
             #Si el producto se elimina correctamente, se devuelve una respuesta JSON con un mensaje de éxito y un código de estado HTTP 200 (OK).
-            return jsonify({"mensaje": "Producto eliminado"}), 200
+            return jsonify({"mensaje": "Cliente eliminado"}), 200
         else:
             #Si ocurre un error durante la eliminación (por ejemplo, si el producto no se puede eliminar de la base de datos por alguna razón), se devuelve un mensaje de error con un código de estado HTTP 500 (Error Interno del Servidor).
-            return jsonify({"mensaje": "Error al eliminar el producto"}), 500
+            return jsonify({"mensaje": "Error al eliminar el cliente"}), 500
     else:
         #Si el producto no se encuentra (por ejemplo, si no existe un producto con el codigo proporcionado), se devuelve un mensaje de error con un código de estado HTTP 404 (No Encontrado). 
-        return jsonify({"mensaje": "Producto no encontrado"}), 404
+        return jsonify({"mensaje": "Cliente no encontrado"}), 404
 
 #--------------------------------------------------------------------
 if __name__ == "__main__":

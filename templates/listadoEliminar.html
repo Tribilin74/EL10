@@ -34,9 +34,9 @@
         <thead> <!--Encabezado de la tabla con columnas para código, descripción, cantidad, precio y acciones.-->
             <tr>
                 <th>Código</th>
-                <th>Descripción</th>
-                <th>Cantidad</th>
-                <th align="right">Precio</th>
+                <th>Nombre Completo</th>
+                <th>Password</th>
+                <th>Correo</th>
                 <th>Acciones</th>
             </tr>
         </thead>
@@ -45,7 +45,7 @@
     </table><br>
 
     <div class="contenedor-centrado">
-        <a href="index.html">Menu principal</a>
+        <a href="./subindex.html">Menu principal</a>
     </div>
 
     <script>
@@ -69,8 +69,8 @@
                         const row = productosTable.insertRow();
                         row.innerHTML = `
                             <td>${producto.codigo}</td>
-                            <td>${producto.descripcion}</td>
-                            <td>${producto.cantidad}</td>
+                            <td>${producto.nombre}</td>
+                            <td>${producto.password}</td>
                             <td align="right">${producto.precio}</td>
                             <td><button onclick="eliminarProducto('${producto.codigo}')">Eliminar</button></td>
                         `;
@@ -79,20 +79,20 @@
                 // Captura y maneja errores, mostrando una alerta en caso de error al obtener los productos.
                 .catch(error => {
                     console.log('Error:', error);
-                    alert('Error al obtener los productos.');
+                    alert('Error al obtener los Clientes.');
                 });
         }
 
         // Se utiliza para eliminar un producto.
         function eliminarProducto(codigo) {
             // Se muestra un diálogo de confirmación. Si el usuario confirma, se realiza una solicitud DELETE al servidor a través de fetch(URL + 'productos/${codigo}', {method: 'DELETE' }).
-            if (confirm('¿Estás seguro de que quieres eliminar este producto?')) {
+            if (confirm('¿Estás seguro de que quieres eliminar este Cliente?')) {
                 fetch(URL + `productos/${codigo}`, { method: 'DELETE' })
                     .then(response => {
                         if (response.ok) {
                             // Si es exitosa (response.ok), elimina el producto y da mensaje de ok.
                             obtenerProductos(); // Vuelve a obtener la lista de productos para actualizar la tabla.
-                            alert('Producto eliminado correctamente.');
+                            alert('Cliente eliminado correctamente.');
                         }
                     })
                     // En caso de error, mostramos una alerta con un mensaje de error.
