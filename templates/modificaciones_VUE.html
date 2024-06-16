@@ -41,15 +41,15 @@
 
         <!-- Segundo formulario: se muestra solo si mostrarDatosProducto es verdadero. Llama a la función guardarCambios -->
         <div v-if="mostrarDatosProducto">
-            <h2>Datos del Producto</h2>
+            <h2>Datos del Cliente</h2>
             <form @submit.prevent="guardarCambios">
                 <label for="descripcionModificar">Nombre:</label>
                 <input type="text" id="descripcionModificar" v-model="nombre" required><br>
 
-                <label for="cantidadModificar">Cantidad:</label>
+                <label for="cantidadModificar">Password:</label>
                 <input type="text" id="cantidadModificar" v-model="password" required><br>
 
-                <label for="precioModificar">Precio:</label>
+                <label for="precioModificar">Correo:</label>
                 <input type="text" step="0.01" id="precioModificar" v-model="correo" required><br>
 
                 <!-- Imagen actual del producto -->
