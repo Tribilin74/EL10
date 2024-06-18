@@ -128,7 +128,7 @@ button:hover {
 
 /* Selector por id que identifica la sección del banner. */
 #banner {
-  background-image: url("../Img/banner.jpg");
+  background-image: url("../imagenes/banner.jpg");
   background-position: center; 
   height: 100%;
 }
