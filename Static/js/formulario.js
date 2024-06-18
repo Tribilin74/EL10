@@ -6,8 +6,9 @@ const expresiones = {
 	nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
 	password: /^.{4,12}$/, // 4 a 12 digitos.
 	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-	telefono: /^\d{7,14}$/, // 7 a 14 numeros.
-	foto: /^[a-zA-Z0-9\_\-]{4,16}$+.jpg/ // Letras, numeros, guion y guion_bajo
+	telefono: /^\d{7,18}$/, // 7 a 14 numeros.
+	foto: /^[a-zA-Z0-9\_\-]{4,16}$+.jpg/ ,// Letras, numeros, guion y guion_bajo
+	plan: /^.{1,1}$/
 }
 
 
@@ -18,7 +19,8 @@ const campos = {
 	password: false,
 	correo: false,
 	telefono: false,
-	foto: false
+	foto: false,
+	plan: false
 }
 
 const validarFormulario = (e) => {
@@ -43,6 +45,8 @@ const validarFormulario = (e) => {
 			validarCampo(expresiones.telefono, e.target, 'telefono');
 		case "foto":
 			validarCampo(expresiones.foto, e.target, 'foto');
+		case "plan":
+				validarCampo(expresiones.plan, e.target, 'plan');
 		break;
 	}
 }
