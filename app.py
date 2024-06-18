@@ -53,7 +53,8 @@ class Catalogo:
             password VARCHAR(255) NOT NULL,
             correo VARCHAR(255) NOT NULL,
             imagen_url VARCHAR(255),
-            telefono INT(18))''')
+            telefono INT(18),
+            plan INT(1))''')
         self.conn.commit()
 
         # Cerrar el cursor inicial y abrir uno nuevo con el parámetro dictionary=True
@@ -61,10 +62,10 @@ class Catalogo:
         self.cursor = self.conn.cursor(dictionary=True)
         
     #----------------------------------------------------------------
-    def agregar_producto(self, nombre, password, correo, imagen_url, telefono,):
+    def agregar_producto(self, nombre, password, correo, imagen_url, telefono,plan,):
                
-        sql = "INSERT INTO clientes (nombre, password, correo, imagen_url, telefono) VALUES (%s, %s, %s, %s, %s)"
-        valores = (nombre, password, correo, imagen_url, telefono)
+        sql = "INSERT INTO clientes (nombre, password, correo, imagen_url, telefono,plan) VALUES (%s, %s, %s, %s, %s,%s)"
+        valores = (nombre, password, correo, imagen_url, telefono,plan)
 
         self.cursor.execute(sql, valores)        
         self.conn.commit()
@@ -77,9 +78,9 @@ class Catalogo:
         return self.cursor.fetchone()
 
     #----------------------------------------------------------------
-    def modificar_producto(self, codigo, nueva_nombre, nueva_password, nuevo_correo, nueva_imagen, nuevo_telefono):
-        sql = "UPDATE clientes SET nombre = %s, password = %s, correo = %s, imagen_url = %s, telefono = %s WHERE codigo = %s"
-        valores = (nueva_nombre, nueva_password, nuevo_correo, nueva_imagen, nuevo_telefono, codigo)
+    def modificar_producto(self, codigo, nueva_nombre, nueva_password, nuevo_correo, nueva_imagen, nuevo_telefono, nuevo_plan):
+        sql = "UPDATE clientes SET nombre = %s, password = %s, correo = %s, imagen_url = %s, telefono = %s,plan =%s WHERE codigo = %s"
+        valores = (nueva_nombre, nueva_password, nuevo_correo, nueva_imagen, nuevo_telefono, nuevo_plan, codigo)
         self.cursor.execute(sql, valores)
         self.conn.commit()
         return self.cursor.rowcount > 0
@@ -109,6 +110,7 @@ class Catalogo:
             print(f"Correo.....: {producto['correo']}")
             print(f"Imagen.....: {producto['imagen_url']}")
             print(f"Telefono...: {producto['telefono']}")
+            print(f"Plan.......: {producto['plan']}")
             print("-" * 40)
         else:
             print("Cliente no encontrado.")
@@ -169,6 +171,7 @@ def agregar_producto():
     correo = request.form['correo']
     imagen = request.files['foto']
     telefono = request.form['telefono']  
+    plan = request.form['plan']
     nombre_imagen=""
 
     
@@ -177,7 +180,7 @@ def agregar_producto():
     nombre_base, extension = os.path.splitext(nombre_imagen) #Separa el nombre del archivo de su extensión.
     nombre_imagen = f"{nombre_base}_{int(time.time())}{extension}" #Genera un nuevo nombre para la imagen usando un timestamp, para evitar sobreescrituras y conflictos de nombres.
 
-    nuevo_codigo = catalogo.agregar_producto(nombre, password, correo, nombre_imagen, telefono)
+    nuevo_codigo = catalogo.agregar_producto(nombre, password, correo, nombre_imagen, telefono,plan)
     if nuevo_codigo:    
         imagen.save ( os.path.join(RUTA_DESTINO, nombre_imagen))
 
@@ -200,6 +203,7 @@ def modificar_producto(codigo):
     nueva_password = request.form.get("password")
     nuevo_correo = request.form.get("correo")
     nuevo_telefono = request.form.get("telefono")
+    nuevo_plan = request.form.get('plan')
     
     
     # Verifica si se proporcionó una nueva imagen
@@ -232,7 +236,7 @@ def modificar_producto(codigo):
 
 
     # Se llama al método modificar_producto pasando el codigo del producto y los nuevos datos.
-    if catalogo.modificar_producto(codigo, nueva_nombre, nueva_password, nuevo_correo, nombre_imagen, nuevo_telefono):
+    if catalogo.modificar_producto(codigo, nueva_nombre, nueva_password, nuevo_correo, nombre_imagen, nuevo_telefono,nuevo_plan):
         
         #Si la actualización es exitosa, se devuelve una respuesta JSON con un mensaje de éxito y un código de estado HTTP 200 (OK).
         return jsonify({"mensaje": "Cliente modificado"}), 200

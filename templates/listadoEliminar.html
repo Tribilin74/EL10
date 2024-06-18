@@ -35,7 +35,7 @@
             <tr>
                 <th>Código</th>
                 <th>Nombre Completo</th>
-                <th>Password</th>
+                <th>Plan</th>
                 <th>Correo</th>
                 <th>Acciones</th>
             </tr>
@@ -70,7 +70,7 @@
                         row.innerHTML = `
                             <td>${producto.codigo}</td>
                             <td>${producto.nombre}</td>
-                            <td>${producto.password}</td>
+                            <td>${producto.plan}</td>
                             <td>${producto.correo}</td>
                             <td><button onclick="eliminarProducto('${producto.codigo}')">Eliminar</button></td>
                         `;

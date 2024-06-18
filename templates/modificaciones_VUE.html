@@ -52,6 +52,9 @@
                 <label for="precioModificar">Correo:</label>
                 <input type="text" step="0.01" id="precioModificar" v-model="correo" required><br>
 
+                <label for="precioModificar">Plan:</label>
+                <input type="text" step="0.01" id="precioModificar" v-model="plan" required><br>
+
                 <!-- Imagen actual del producto -->
                 <img v-if="imagen_url && !imagenSeleccionada" :src="'./static/imagenes/' + imagen_url"
                     alt="Imagen del producto" style="max-width: 200px;">
@@ -72,6 +75,10 @@
                 <br>
                 <label for="proveModificar">Telefono:</label>
                 <input type="number" id="proveModificar" v-model="telefono" required><br>
+
+                <br>
+                <label for="proveModificar">Plan:</label>
+                <input type="number" id="proveModificar" v-model="plan" required><br>
 
                 <button type="submit">Guardar Cambios</button>
                 <a href="modificaciones.html">Cancelar</a>
@@ -98,6 +105,7 @@
                     password: '',
                     correo: '',
                     telefono: '',
+                    plan: '',
                     imagen_url: '',
                     imagenSeleccionada: null,
                     imagenUrlTemp: null,
@@ -129,6 +137,7 @@
                             this.correo = data.correo;
                             this.telefono = data.telefono;
                             this.imagen_url =  data.imagen_url;
+                            this.plan = data.plan;
                             this.mostrarDatosProducto = true;
                         })
 
@@ -153,6 +162,7 @@
                     formData.append('password', this.password);
                     formData.append('telefono', this.telefono);
                     formData.append('correo', this.correo);
+                    formData.append('plan', this.plan);
 
                     //Si se ha seleccionado una imagen nueva, la añade al formData. 
                     if (this.imagenSeleccionada) {
@@ -193,6 +203,7 @@
                     this.nombre = '';
                     this.password = '';
                     this.correo = '';
+                    this.plan = '';
                     this.imagen_url = '';
                     this.imagenSeleccionada = null;
                     this.imagenUrlTemp = null;

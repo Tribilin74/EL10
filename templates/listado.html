@@ -33,12 +33,12 @@
     <table> <!-- Se crea una tabla para mostrar los productos. -->
         <thead> <!--Encabezado de la tabla con columnas para código, descripción, cantidad, precio y acciones.-->
             <tr>
-                <th>Código</th>
+                <th>Cód</th>
                 <th>Nombre Completo</th>
-                <th>Password</th>                
                 <th>Correo</th>
                 <th>Imagen</th>
                 <th>Telefono</th>
+                <th>Plan</th>
                 
             </tr>
         </thead>
@@ -77,10 +77,9 @@
                     let fila = document.createElement('tr'); //Crea una nueva fila de tabla (<tr>) para cada producto.
                     fila.innerHTML = '<td>' + producto.codigo + '</td>' +
                         '<td>' + producto.nombre + '</td>' +
-                        '<td align="right">' + producto.password + '</td>' +
-                        '<td align="right">' + producto.correo + '</td>' +
+                        '<td>' + producto.correo + '</td>' +
                         // Mostrar miniatura de la imagen
-                        '<td><img src=./static/imagenes/' + producto.imagen_url +' alt="Imagen del producto" style="width: 100px;"></td>' + '<td align="right">' + producto.telefono + '</td>';
+                        '<td><img src=./static/imagenes/' + producto.imagen_url +' alt="Imagen del producto" style="width: 100px;"></td>' + '<td align="right">' + producto.telefono + '</td>'+ '<td align="right">' + producto.plan + '</td>';
                         
                         //Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
                         //'<td><img src=https://www.pythonanywhere.com/user/USUARIO/files/home/USUARIO/mysite/static/imagenes/' + producto.imagen_url +' alt="Imagen del producto" style="width: 100px;"></td>' + '<td align="right">' + producto.proveedor + '</td>';

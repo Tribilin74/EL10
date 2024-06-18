@@ -71,6 +71,11 @@
                 <div class ="formulario__grupo-input">
                     <input type="number" id="proveModificar" required><br>
                 </div>
+                <br>
+                <label for="planModificar">Plan:</label>
+                <div class ="formulario__grupo-input">
+                    <input type="number" id="planModificar" required><br>
+                </div>
                 <button type="submit">Guardar Cambios</button>
                 <a href="modificaciones.html">Cancelar</a>
             </form>
@@ -93,6 +98,7 @@
         let imagenSeleccionada = null;
         let imagenUrlTemp = null;
         let mostrarDatosProducto = false;
+        let plan = false;
 
         document.getElementById('form-obtener-producto').addEventListener('submit', obtenerProducto);
         document.getElementById('form-guardar-cambios').addEventListener('submit', guardarCambios);
@@ -116,6 +122,7 @@
                     correo = data.correo;
                     telefono = data.telefono;
                     imagen_url = data.imagen_url;
+                    plan= data.plan
                     mostrarDatosProducto = true; //Activa la vista del segundo formulario
                     mostrarFormulario();
                 })
@@ -131,6 +138,7 @@
                 document.getElementById('cantidadModificar').value = password;
                 document.getElementById('precioModificar').value = correo;
                 document.getElementById('proveModificar').value = telefono;
+                document.getElementById('planModificar').value = plan;
 
                 const imagenActual = document.getElementById('imagen-actual');
                 if (imagen_url && !imagenSeleccionada) { // Verifica si imagen_url no está vacía y no se ha seleccionado una imagen
@@ -172,7 +180,7 @@
             formData.append('password', document.getElementById('cantidadModificar').value);
             formData.append('telefono', document.getElementById('proveModificar').value);
             formData.append('correo', document.getElementById('precioModificar').value);
-
+            formData.append('plan', document.getElementById('planModificar').value);
             // Si se ha seleccionado una imagen nueva, la añade al formData. 
             if (imagenSeleccionada) {
                 formData.append('imagen', imagenSeleccionada, imagenSeleccionada.name);
@@ -206,6 +214,7 @@
             document.getElementById('cantidadModificar').value = '';
             document.getElementById('precioModificar').value = '';
             document.getElementById('proveModificar').value = '';
+            document.getElementById('planModificar').value = '';
             document.getElementById('nuevaImagen').value = '';
 
             const imagenActual = document.getElementById('imagen-actual');
