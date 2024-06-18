@@ -153,7 +153,7 @@ def mostrar_producto(codigo):
     if producto:
         return jsonify(producto), 201
     else:
-        return "Producto no encontrado", 404
+        return "Cliente no encontrado", 404
 
 
 #--------------------------------------------------------------------
