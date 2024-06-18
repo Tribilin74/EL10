@@ -125,10 +125,10 @@ catalogo = Catalogo(host='Tribilin74.mysql.pythonanywhere-services.com', user='T
 
 
 # Carpeta para guardar las imagenes.
-RUTA_DESTINO = './static/imagenes/'
+#RUTA_DESTINO = './static/imagenes/'
 
 #Al subir al servidor, deberá utilizarse la siguiente ruta. USUARIO debe ser reemplazado por el nombre de usuario de Pythonanywhere
-#RUTA_DESTINO = '/home/USUARIO/mysite/static/imagenes'
+RUTA_DESTINO = '/home/Tribilin74/mysite/static/imagenes'
 
 
 #--------------------------------------------------------------------
